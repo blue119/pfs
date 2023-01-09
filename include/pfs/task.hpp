@@ -49,6 +49,7 @@ public: // Properties
 
 public: // Getters
     std::vector<cgroup> get_cgroups() const;
+    std::vector<limit> get_limits() const;
 
     std::vector<std::string> get_cmdline(size_t max_size = 65536) const;
 

@@ -28,6 +28,9 @@ static void enum_task(const pfs::task& task)
         LOG("Task ID[" << task.id() << "]");
         LOG("=========================================================");
 
+        auto status = task.get_limits();
+        print(status);
+
         auto status = task.get_status();
         print(status);
 

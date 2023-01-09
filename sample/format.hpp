@@ -691,6 +691,18 @@ inline std::ostream& operator<<(std::ostream& out, const pfs::fd& fd)
     return out;
 }
 
+inline std::ostream& operator<<(std::ostream& out, const pfs::limit& lts)
+{
+    out << lts.name << "[";
+    out << lts.soft;
+    out << "/" << lts.hard;
+    if (lts.unit.size()) {
+        out << "/" << lts.unit;
+    }
+    out << "]";
+    return out;
+}
+
 inline std::ostream& operator<<(std::ostream& out,
                                 const pfs::cgroup_controller& controller)
 {

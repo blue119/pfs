@@ -590,6 +590,14 @@ struct cgroup_controller
     bool enabled;
 };
 
+struct limit
+{
+    std::string name;
+    std::string soft;
+    std::string hard;
+    std::string unit;
+};
+
 struct cgroup
 {
     unsigned hierarchy;

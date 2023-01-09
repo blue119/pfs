@@ -68,6 +68,19 @@ const std::string& task::dir() const
     return _task_root;
 }
 
+std::vector<limit> task::get_limits() const
+{
+    static const size_t HEADER_LINES = 1;
+    static const std::string LIMITS_FILE("limits");
+    auto path = _task_root + LIMITS_FILE;
+
+    std::vector<limit> output;
+    std::cout << path << '\n';
+    parsers::parse_lines(path, std::back_inserter(output),
+                         parsers::parse_limit_line, HEADER_LINES);
+    return output;
+}
+
 std::vector<cgroup> task::get_cgroups() const
 {
     static const std::string CGROUP_FILE("cgroup");
